@@ -1,0 +1,14 @@
+node_modules/
+.nuxt/
+.output/
+dist/
+__pycache__/
+.pytest_cache/
+.venv/
+*.pyc
+.env
+doc/_rendered_plan/
+_source_doc.docx
+frontend/dev-server*.log
+frontend/preview-server*.log
+_video_frames/
