@@ -1,23 +1,30 @@
 <template>
-  <main class="lab-shell py-12">
-    <SectionTitle eyebrow="Works" title="作品集" />
-    <section class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      <article v-for="work in works" :key="work.title" class="glass glow-border lift group rounded-lg p-4 [transform-style:preserve-3d] hover:[transform:translateY(-6px)_rotateX(2deg)_rotateY(-3deg)]">
-        <img class="h-48 w-full rounded-md object-cover" :src="work.cover" :alt="work.title">
-        <div class="mt-5 flex items-start justify-between gap-4">
+  <main class="sub-page sub-page--works">
+    <AppHeader />
+    <section class="sub-hero section-shell">
+      <p class="eyebrow">Selected Works</p>
+      <h1>作品集</h1>
+      <p>把能展示能力的项目做成清晰的作品资产，而不是散落在简历里的几个链接。</p>
+    </section>
+
+    <section class="work-grid-page section-shell">
+      <article v-for="work in works" :key="work.title" class="work-showcase-card glass-card">
+        <div class="work-showcase-card__image">
+          <img :src="work.cover" :alt="work.title">
+          <span v-if="work.featured">Featured</span>
+        </div>
+        <div class="work-showcase-card__body">
+          <p>{{ work.status }}</p>
+          <h2>{{ work.title }}</h2>
+          <strong>{{ work.subtitle }}</strong>
+          <span>{{ work.description }}</span>
           <div>
-            <h2 class="text-2xl font-bold">{{ work.title }}</h2>
-            <p class="mt-1 text-sm text-lab-cyan">{{ work.subtitle }}</p>
+            <em v-for="tag in work.stack" :key="tag">{{ tag }}</em>
           </div>
-          <span v-if="work.featured" class="rounded-full bg-lab-violet/20 px-3 py-1 text-xs text-lab-violet">精选</span>
-        </div>
-        <p class="mt-4 leading-7 text-slate-300">{{ work.description }}</p>
-        <div class="mt-5 flex flex-wrap gap-2">
-          <span v-for="tag in work.stack" :key="tag" class="rounded-full bg-white/8 px-3 py-1 text-xs text-slate-300">{{ tag }}</span>
-        </div>
-        <div class="mt-6 flex gap-3">
-          <a :href="work.demoUrl" class="rounded-full bg-lab-cyan px-4 py-2 text-sm font-semibold text-slate-950">在线预览</a>
-          <a :href="work.githubUrl" class="rounded-full border border-white/10 px-4 py-2 text-sm">GitHub</a>
+          <nav>
+            <a :href="work.demoUrl">Live Preview</a>
+            <a :href="work.githubUrl">GitHub</a>
+          </nav>
         </div>
       </article>
     </section>
@@ -25,5 +32,6 @@
 </template>
 
 <script setup lang="ts">
+import AppHeader from '~/components/home/AppHeader.vue'
 import { works } from '~/composables/useMockContent'
 </script>

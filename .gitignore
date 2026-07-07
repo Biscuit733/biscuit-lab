@@ -12,3 +12,4 @@ _source_doc.docx
 frontend/dev-server*.log
 frontend/preview-server*.log
 _video_frames/
+_video_frames_new/
