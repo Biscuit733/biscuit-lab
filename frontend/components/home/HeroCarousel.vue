@@ -4,6 +4,7 @@
       v-for="item in features"
       :key="item.title"
       class="hero-feature-card"
+      :class="{ 'is-active': features.indexOf(item) % 4 === activeIndex }"
       type="button"
       @click="$emit('select', item)"
     >
@@ -19,6 +20,7 @@ import type { HeroFeatureItem } from '~/data/heroFeatures'
 
 defineProps<{
   features: HeroFeatureItem[]
+  activeIndex?: number
 }>()
 
 defineEmits<{

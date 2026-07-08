@@ -1,11 +1,6 @@
 <template>
-  <main class="sub-page sub-page--gallery">
-    <AppHeader />
-    <section class="sub-hero section-shell">
-      <p class="eyebrow">Gallery / Resources</p>
-      <h1>图片资源库</h1>
-      <p>用于沉淀封面、视觉参考、Prompt 配图和后续可下载资源。</p>
-    </section>
+  <PageShell>
+    <PageHero eyebrow="Gallery / Resources" title="Gallery Resources" description="用于沉淀封面、视觉参考、Prompt 配图和后续可下载资源。" />
 
     <section class="section-shell">
       <div class="resource-tabs">
@@ -15,7 +10,7 @@
       </div>
 
       <div class="resource-grid">
-        <article v-for="image in filteredGallery" :key="image.title" class="resource-card glass-card">
+        <TiltCard v-for="image in filteredGallery" :key="image.title" class="resource-card glass-card reveal-card shine-surface" :max-tilt="6">
           <button type="button" @click="selected = image">
             <img :src="image.url" :alt="image.title">
           </button>
@@ -28,7 +23,7 @@
               <button type="button" @click="copyLink(image.url)">Copy Link</button>
             </div>
           </div>
-        </article>
+        </TiltCard>
       </div>
     </section>
 
@@ -43,11 +38,13 @@
         </div>
       </div>
     </div>
-  </main>
+  </PageShell>
 </template>
 
 <script setup lang="ts">
-import AppHeader from '~/components/home/AppHeader.vue'
+import PageHero from '~/components/common/PageHero.vue'
+import PageShell from '~/components/common/PageShell.vue'
+import TiltCard from '~/components/effects/TiltCard.vue'
 import { gallery, type GalleryImage } from '~/composables/useMockContent'
 
 const imageCategories = ['全部', ...Array.from(new Set(gallery.map((item) => item.category)))]

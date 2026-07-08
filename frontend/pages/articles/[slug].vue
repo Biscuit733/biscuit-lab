@@ -1,9 +1,8 @@
 <template>
-  <main class="sub-page sub-page--article-detail">
-    <AppHeader />
+  <PageShell>
     <section class="article-detail-layout section-shell">
       <article class="article-detail glass-card">
-        <NuxtLink to="/articles" class="article-detail__back">← Back to Articles</NuxtLink>
+        <NuxtLink to="/notes" class="article-detail__back">← Back to Notes</NuxtLink>
         <p class="eyebrow">{{ article?.category }} / {{ article?.date }} / {{ article?.views }} reads</p>
         <h1>{{ article?.title }}</h1>
         <p class="article-detail__summary">{{ article?.summary }}</p>
@@ -26,11 +25,11 @@
         <a href="#">后续迭代</a>
       </aside>
     </section>
-  </main>
+  </PageShell>
 </template>
 
 <script setup lang="ts">
-import AppHeader from '~/components/home/AppHeader.vue'
+import PageShell from '~/components/common/PageShell.vue'
 import { articles } from '~/composables/useMockContent'
 
 const route = useRoute()

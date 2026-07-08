@@ -10,9 +10,9 @@
         我正在把前端经验升级为全栈交付能力，围绕 Vue、TypeScript、Node、AI 应用、部署和工程化构建长期作品集。
       </p>
       <div class="home-hero__actions">
-        <a href="#projects" class="neon-button">View Projects</a>
-        <a href="/articles" class="glass-button">Read Notes</a>
-        <a href="#contact" class="glass-button">Contact Me</a>
+        <a href="/work" class="neon-button">View Projects</a>
+        <a href="/notes" class="glass-button">Read Notes</a>
+        <a href="/contact" class="glass-button">Contact Me</a>
       </div>
       <div class="home-hero__tags">
         <span v-for="tag in tags" :key="tag">{{ tag }}</span>

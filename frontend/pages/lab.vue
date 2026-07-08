@@ -1,29 +1,31 @@
 <template>
-  <main class="sub-page sub-page--lab">
-    <AppHeader />
-    <section class="sub-hero section-shell">
-      <p class="eyebrow">Creative Lab</p>
-      <h1>前端实验室</h1>
-      <p>这里用于沉淀动效、AI 交互、视觉组件和未来可复用的产品片段。</p>
-    </section>
+  <PageShell>
+    <PageHero eyebrow="Creative Lab" title="Lab Experiments" description="记录全栈、AI 应用、工程化和产品实验。" />
 
     <section class="lab-grid section-shell">
-      <article v-for="item in demos" :key="item.title" class="lab-experiment-card glass-card">
-        <div class="lab-experiment-card__visual" :class="item.gradient" />
-        <span>{{ item.code }}</span>
-        <h2>{{ item.title }}</h2>
-        <p>{{ item.description }}</p>
-      </article>
+      <FlipCard v-for="item in labExperiments" :key="item.title" class="lab-experiment-card glass-card">
+        <template #front>
+          <div class="lab-experiment-card__visual" :class="item.gradient" />
+          <span><i />EXP-{{ item.code }} · {{ item.status }}</span>
+          <h2>{{ item.title }}</h2>
+          <p>{{ item.description }}</p>
+        </template>
+        <template #back>
+          <span><i />SYSTEM STACK</span>
+          <h2>{{ item.title }}</h2>
+          <p>实验目标：把视觉表现、前端工程、AI 工作流和部署路径沉淀成可复用模块。</p>
+          <div>
+            <em v-for="tag in item.tags" :key="tag">{{ tag }}</em>
+          </div>
+        </template>
+      </FlipCard>
     </section>
-  </main>
+  </PageShell>
 </template>
 
 <script setup lang="ts">
-import AppHeader from '~/components/home/AppHeader.vue'
-
-const demos = [
-  { code: '01', title: '粒子背景', description: '第二阶段接入粒子、鼠标跟随和性能开关。', gradient: 'bg-[radial-gradient(circle_at_30%_30%,#22f5d1,transparent_38%),radial-gradient(circle_at_70%_60%,#8d6cff,transparent_42%)]' },
-  { code: '02', title: 'AI 对话流', description: '用于展示 AI 应用 Builder 的流式输出 UI。', gradient: 'bg-[linear-gradient(135deg,rgba(34,245,209,.36),rgba(141,108,255,.22))]' },
-  { code: '03', title: '3D 卡片', description: '沉淀作品卡片、图片预览和后台仪表盘动效。', gradient: 'bg-[conic-gradient(from_90deg,#22f5d1,#8d6cff,#b9ff66,#22f5d1)]' }
-]
+import PageHero from '~/components/common/PageHero.vue'
+import PageShell from '~/components/common/PageShell.vue'
+import FlipCard from '~/components/effects/FlipCard.vue'
+import { labExperiments } from '~/data/lab'
 </script>

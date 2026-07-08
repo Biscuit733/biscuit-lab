@@ -1,11 +1,6 @@
 <template>
-  <main class="sub-page sub-page--articles">
-    <AppHeader />
-    <section class="sub-hero section-shell">
-      <p class="eyebrow">Articles / Learning Notes</p>
-      <h1>文章实验库</h1>
-      <p>把学习、项目复盘和 AI 产品思考整理成可以持续升级的个人知识系统。</p>
-    </section>
+  <PageShell>
+    <PageHero eyebrow="Articles / Learning Notes" title="Notes Lab" description="把学习、项目复盘和 AI 产品思考整理成可以持续升级的个人知识系统。" />
 
     <section class="content-layout section-shell">
       <aside class="content-filter glass-card">
@@ -42,11 +37,12 @@
         </NuxtLink>
       </section>
     </section>
-  </main>
+  </PageShell>
 </template>
 
 <script setup lang="ts">
-import AppHeader from '~/components/home/AppHeader.vue'
+import PageHero from '~/components/common/PageHero.vue'
+import PageShell from '~/components/common/PageShell.vue'
 import { articles, categories } from '~/composables/useMockContent'
 
 const keyword = ref('')

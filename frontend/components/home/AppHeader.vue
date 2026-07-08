@@ -14,7 +14,7 @@
 
       <div class="home-header__actions">
         <a class="home-header__ghost" href="https://github.com/Biscuit733" target="_blank" rel="noreferrer">GitHub</a>
-        <a class="home-header__button" href="#contact">Contact</a>
+        <a class="home-header__button" href="/contact">Contact</a>
       </div>
     </nav>
   </header>

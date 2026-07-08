@@ -7,8 +7,8 @@
       <div class="contact-section__links">
         <a href="https://github.com/Biscuit733" target="_blank" rel="noreferrer">GitHub</a>
         <a href="mailto:hello@biscuitlab.dev">Email</a>
-        <a href="#gallery">Xiaohongshu</a>
-        <a href="#projects">Portfolio</a>
+        <a href="/gallery">Xiaohongshu</a>
+        <a href="/work">Portfolio</a>
       </div>
       <a class="neon-button" href="mailto:hello@biscuitlab.dev">Contact Me</a>
     </div>

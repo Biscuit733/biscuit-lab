@@ -1,13 +1,6 @@
 <template>
   <section id="profile" class="resume-section section-shell fade-up">
-    <div class="resume-card glass-card">
-      <div class="resume-card__avatar">
-        <span>BL</span>
-        <i />
-      </div>
-      <div class="resume-card__badge">Available for AI Product Projects</div>
-      <p>Visual identity / frontend engineering / AI application workflow</p>
-    </div>
+    <ProfileCharacterCard />
 
     <div class="resume-content">
       <p class="eyebrow">About Me</p>
@@ -40,5 +33,6 @@
 
 <script setup lang="ts">
 import StatsGrid from '~/components/home/StatsGrid.vue'
+import ProfileCharacterCard from '~/components/home/ProfileCharacterCard.vue'
 import { profile, timelineItems } from '~/data/profile'
 </script>

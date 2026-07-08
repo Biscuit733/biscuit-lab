@@ -13,7 +13,7 @@
           <div class="feature-modal__tags">
             <span v-for="tag in feature.tags" :key="tag">{{ tag }}</span>
           </div>
-          <a class="neon-button" href="#projects" @click="$emit('close')">{{ feature.actionLabel }}</a>
+          <a class="neon-button" href="/work" @click="$emit('close')">{{ feature.actionLabel }}</a>
         </div>
       </article>
     </div>
